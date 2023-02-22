@@ -36,15 +36,15 @@ clean-targets:
 seeds:
   dbt_impala_demo:
     reference:
-      +schema: reference
+      # +schema: reference
 
 models:
   dbt_impala_demo:
     +materialized: view
     staging:
       covid:
-        +schema: staging_covid
+        # +schema: staging_covid
     marts:
       +materialized: table
       covid:
-        +schema: mart_covid
+        # +schema: mart_covid

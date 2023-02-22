@@ -2,3 +2,4 @@ logs/*
 .venv/*
 .DS_Store
 util/data_gen/data/*.csv
+set_env_var.sh

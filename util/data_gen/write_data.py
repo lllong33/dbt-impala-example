@@ -18,6 +18,7 @@ import csv
 import argparse
 from impala.dbapi import connect
 from pathlib import Path
+import os
 
 
 parser = argparse.ArgumentParser(description='Write fake data to impala')
@@ -34,14 +35,14 @@ data_path = str(Path(__file__).resolve().parent)+'/data/'
 # Connection properties for Impala
 # Customise to your environment
 impala_conf = {
-    'host': '',
-    'port': '',
-    'user': '',
-    'password': '!',
-    'auth_mechanism': 'ldap',
-    'use_ssl': True,
-    'use_http_transport': True,
-    'http_path': ''
+    'host': os.environ["DBT_IMPALA_HOST"],
+    'port': os.environ["DBT_IMPALA_PORT"]
+    # 'user': '',
+    # 'password': '!'
+    # 'auth_mechanism': 'ldap',
+    # 'use_ssl': True,
+    # 'use_http_transport': True,
+    # 'http_path': ''
 }
 
 # Builds of a string of values to be used in the INSERT
@@ -131,7 +132,7 @@ def create_cnx():
 conn = create_cnx()
 
 write_file_to_impala(data_path+'raw_covid__cases.csv',
-                     'dbt_demo_raw_covid', 'raw_covid__cases')
+                     'dbt', 'raw_covid__cases')
 
 write_file_to_impala(data_path+'raw_covid__vaccines.csv',
-                     'dbt_demo_raw_covid', 'raw_covid__vaccines')
+                     'dbt', 'raw_covid__vaccines')

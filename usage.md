@@ -47,3 +47,5 @@ dbt (database)
 
 
 # F2 dbt pre_hook practice
+验证 pre_hook 成功解决问题. 对于 sql_header 报错, 可能是 notsupport mutli-statement.
+注意下语法, 列表中每个元素代表一次 statement.

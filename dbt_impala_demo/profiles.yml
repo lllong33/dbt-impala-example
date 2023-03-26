@@ -1,15 +1,20 @@
 dbt_impala_demo:
   outputs:
     dev_cia_cdp:
-     type: impala
-     host: "{{ env_var('DBT_IMPALA_HOST') }}"
+      type: impala
+      host: 192.168.235.53
+      port: 21050
+      dbname: dw
+      schema: dw
+    #  type: impalad
+    #  host: "{{ env_var('DBT_IMPALA_HOST') }}"
     #  http_path: "{{ env_var('DBT_IMPALA_HTTP_PATH') }}"
-     port: "{{ env_var('DBT_IMPALA_PORT') | as_number }}" 
-    #  auth_type: ldap
-    #  use_http_transport: true
-    #  use_ssl: true
-    #  username: "{{ env_var('DBT_IMPALA_USER') }}"
-    #  password: "{{ env_var('DBT_IMPALA_PASSWORD') }}"
-     dbname: "{{ env_var('DBT_IMPALA_DBNAME') }}"     #DBT_IMPALA_DBNAME is optional
-     schema: "{{ env_var('DBT_IMPALA_SCHEMA') }}"
+    #  port: "{{ env_var('DBT_IMPALA_PORT') | as_number }}" 
+    # #  auth_type: ldap
+    # #  use_http_transport: true
+    # #  use_ssl: true
+    # #  username: "{{ env_var('DBT_IMPALA_USER') }}"
+    # #  password: "{{ env_var('DBT_IMPALA_PASSWORD') }}"
+    #  dbname: "{{ env_var('DBT_IMPALA_DBNAME') }}"     #DBT_IMPALA_DBNAME is optional
+    #  schema: "{{ env_var('DBT_IMPALA_SCHEMA') }}"
   target: dev_cia_cdp

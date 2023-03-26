@@ -18,7 +18,7 @@ version: 2
 
 sources:
   - name: raw_covid
-    schema: "{{ env_var('DBT_IMPALA_SCHEMA') }}"
+    # schema: "{{ env_var('DBT_IMPALA_SCHEMA') }}"
     tables:
       - name: raw_covid__vaccines
       - name: raw_covid__cases

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: impala_partition_by_inc
+    description: "This model is used to test the impala_partition_by_inc rule"
+
+    columns:
+      - name: id
+        description: "itemid & pk"
+        tests:
+          - unique
+          - not_null 
+      
+      - name: city
+        tests:
+          - accepted_values:
+             values: ['City1', 'City2', 'City3', 'City4']
+        
